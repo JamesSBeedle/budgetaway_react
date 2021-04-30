@@ -11,13 +11,13 @@ const HeaderAndCountryFilter = ({countries, onCountrySelect, luckyDip, languages
 
     const displayRegions = (regions) ? 
         regions.sort().map((region, index) => {
-            return <option value={region} key={index}>{region}</option>
+            return <option value={region} key={index}/>
         }) : null
 
     const displayLanguages = (languages) ?
         languages.sort((a, b) => a.name.localeCompare(b.name))
         .map((language, id) => {
-            return <option value={language.name} key={id}>{language.name}</option>
+            return <option value={language.name} key={id}/>
         }) : null
         
 
@@ -40,16 +40,15 @@ const HeaderAndCountryFilter = ({countries, onCountrySelect, luckyDip, languages
             </div>
 
             <div className="search-bar-selector">
-                    <select className="languages" name="lanugages" id="languages" onChange={handleLanguageSelect}>
-                        <option value="disabled">Select Language</option>
+                <input list="languages" className="languages" onChange={handleLanguageSelect}/>
+                    <datalist  id="languages" >
                         {displayLanguages}
-                    </select>
+                    </datalist>
 
-                    <select className="regions" name="regions" id="regions" onChange={handleRegionSelect}>
-
-                        <option value="disabled">Select Region</option>
+                    <input list="regions" className="regions" onChange={handleRegionSelect}/>
+                    <datalist  id="regions" >
                         {displayRegions}
-                    </select>
+                    </datalist>
                     <div className="nations">
                     <CountryList countries={countries} onCountrySelect={onCountrySelect}/>
                     </div>

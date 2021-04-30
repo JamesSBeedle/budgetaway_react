@@ -126,7 +126,7 @@ const PageContainer = () => {
             getAllCountries()
                 .then(data => setAllFilteredCountries(data))
         }
-    }, [selectedLanguage, selectedRegion, allCountries])
+    }, [selectedLanguage, selectedRegion])
 
     const findCountry = (searchCountry, collection) => {
         return collection.find(({name}) => name === searchCountry)

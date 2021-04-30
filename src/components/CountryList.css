@@ -1,6 +1,6 @@
-#countries-list {
+.countries-list {
     display: inline-block;
-    background-color: lavender;
+    background-color: white;
     border-radius: 12px;
     border: 4px double  rgb(241, 87, 4);
     color: black;

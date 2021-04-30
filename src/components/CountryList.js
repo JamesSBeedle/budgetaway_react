@@ -3,7 +3,7 @@ import "./CountryList.css"
 const CountryList = ({countries, onCountrySelect}) => {
 
     const countryDisplay = countries.map((country, index) => {
-        return <option value={country.name} key={index}>{country.name}</option>
+        return <option value={country.name} key={index}/>
     })
 
     const handleSelect = (evt) => {
@@ -12,10 +12,10 @@ const CountryList = ({countries, onCountrySelect}) => {
 
     return (
         <form>
-            <select name="countries-list" id="countries-list" onChange={handleSelect}>
-                <option value="disabled">Select a Country</option>
+            <input list="countries-list" className="countries-list"onChange={handleSelect}/>
+            <datalist  id="countries-list" >
                 {countryDisplay}
-            </select>
+            </datalist>
         </form>
     )
 }
