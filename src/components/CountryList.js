@@ -12,7 +12,7 @@ const CountryList = ({countries, onCountrySelect}) => {
 
     return (
         <form>
-            <input list="countries-list" className="countries-list"onChange={handleSelect}/>
+            <input list="countries-list" className="countries-list"onChange={handleSelect} placeholder="Search Country"/>
             <datalist  id="countries-list" >
                 {countryDisplay}
             </datalist>
