@@ -16,9 +16,10 @@
 
 .search-bar-selector{
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr 1fr;
+    grid-template-columns: auto 1fr 1fr auto;
     justify-items: center;
     height: fit-content;
+    margin: 0px 10%;
 }
 
 .navbar > NarBar {
