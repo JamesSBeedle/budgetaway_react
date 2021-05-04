@@ -11,7 +11,7 @@
 .item-container{
     display:grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows:1.5fr 1fr 1fr 1fr;
+    grid-template-rows:1.5fr 1fr 1fr 1.5fr;
     grid-gap: 10px;
     border: 2px cornsilk solid;
     border-radius: 12px;
@@ -22,13 +22,13 @@
 }
 .item-container > h3 {
     margin: 5px;
-    font-size:50px;
+    font-size:40px;
     grid-column: 1/span 2 ;
     grid-row: 1;
 }
 .item-container > p {
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     margin:0;
 }
 .wishlist-button{
