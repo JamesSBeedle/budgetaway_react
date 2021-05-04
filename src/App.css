@@ -5,3 +5,7 @@ body {
     background-size: cover;
     background-color: skyblue;
 }
+
+body::-webkit-scrollbar{
+    display: none;
+}

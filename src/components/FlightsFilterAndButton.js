@@ -36,14 +36,14 @@ const FlightsFilterAndButton = ({selectedCountry, onSearchSubmit, ukAirports}) =
     return (
         <div className="airport-selection">
             <form onSubmit={handleSearchSubmit}>
-                <select name="departure-airport" id="departure-airport" onChange={handleDepAirportChange}>
-                    <option value="disabled">Departure Airport</option>
+                <input list="departure-airport" className="airport" onChange={handleDepAirportChange} placeholder="Departure Airport"/>
+                <datalist id="departure-airport">
                     {defaults}
-                </select>
-                <select name="dest-airport" id="dest-airport" onChange={handleDestAirportChange}>
-                    <option value="disabled">Destination Airport</option>
+                </datalist>
+                <input list="dest-airport" className="airport" onChange={handleDestAirportChange} placeholder="Destination Airport"/>
+                <datalist id="dest-airport" >
                     {airports}
-                </select>
+                </datalist>
                 <input type="submit" value="Search Flights"/>
             </form>
         </div>
