@@ -59,10 +59,10 @@ const removeFromWishlistDB = (id) => {
     })
 }
 
-const addToWishlistDB = (flight) => {
+const addToWishlistDB = (flights) => {
     return fetch(wishlistURL, {
         method: 'POST',
-        body: JSON.stringify(flight),
+        body: JSON.stringify(flights),
         headers: {
             'Content-Type': 'application/json'
         }

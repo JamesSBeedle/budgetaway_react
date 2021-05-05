@@ -11,7 +11,7 @@
 .item-container{
     display:grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows:auto 1fr 1fr 1.5fr;
+    grid-template-rows:auto 1fr 1fr 1fr auto;
     grid-gap: 10px;
     border: 2px cornsilk solid;
     border-radius: 12px;
@@ -38,7 +38,7 @@
     border: 2px outset rgb(103, 0, 0);
     border-radius:12px;
     grid-column:1/span 2;
-    grid-row:4;
+    grid-row:5;
     width:200px;
     height:50px;
     justify-self:center;

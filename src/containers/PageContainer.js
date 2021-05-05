@@ -23,7 +23,7 @@ const PageContainer = () => {
     const [selectedRegion, setSelectedRegion] = useState("");
     const [selectedCountryId, setSelectedCountryId] = useState("");
     const [selectedCountry, setSelectedCountry] = useState("");
-    const [selectedFlight, setSelectedFlight] = useState("");
+    const [selectedFlight, setSelectedFlight] = useState([]);
     const [ukAirports, setUKAirports] = useState([])
     const [wishlist, setWishlist] = useState("")
 
@@ -172,21 +172,35 @@ const PageContainer = () => {
     }
 
     const searchFlights = (departureAirport, destinationAirport) => {
-        fetch(`http://api.aviationstack.com/v1/flights?access_key=${flight_key}&dep_iata=${departureAirport}&arr_iata=${destinationAirport}&limit=1`)
+        fetch(`http://api.aviationstack.com/v1/flights?access_key=${flight_key}&dep_iata=${departureAirport}&arr_iata=${destinationAirport}&limit=3`)
         .then(res => res.json())
         .then(data => 
             {
-            setSelectedFlight(
-                {
-                    name: selectedCountry.name,
-                    depAirport: data.data[0].departure.airport,
-                    arrAirport: data.data[0].arrival.airport,
-                    duration: durationCalculation(data.data[0].departure.scheduled, data.data[0].arrival.scheduled),
-                    price: priceCalculation(durationCalculation(data.data[0].departure.scheduled, data.data[0].arrival.scheduled)),
-                    airline: data.data[0].airline.name,
-                    number: data.data[0].flight.iata
-                }
-            )
+            // setSelectedFlight(
+            //     {
+            //         name: selectedCountry.name,
+            //         depAirport: data.data[0].departure.airport,
+            //         arrAirport: data.data[0].arrival.airport,
+            //         duration: durationCalculation(data.data[0].departure.scheduled, data.data[0].arrival.scheduled),
+            //         price: priceCalculation(durationCalculation(data.data[0].departure.scheduled, data.data[0].arrival.scheduled)),
+            //         airline: data.data[0].airline.name,
+            //         number: data.data[0].flight.iata
+            //     }
+            // )
+            const flightsArray = []
+                data.data.map((flight) => {
+                    return flightsArray.push(
+                     {
+                        name: selectedCountry.name,
+                        depAirport: flight.departure.airport,
+                        arrAirport: flight.arrival.airport,
+                        duration: durationCalculation(flight.departure.scheduled, flight.arrival.scheduled),
+                        price: priceCalculation(durationCalculation(flight.departure.scheduled, flight.arrival.scheduled)),
+                        airline: flight.airline.name,
+                        number: flight.flight.iata
+                    })
+                })
+            setSelectedFlight(flightsArray)
         }
         )
     }
@@ -214,17 +228,17 @@ const PageContainer = () => {
     useEffect(() => {
         getWishlist()
             .then(data => setWishlist(data))
-    }, [wishlist, allFilteredCountries])
+    }, [wishlist])
 
-    const addToWishlist = () => {
-        addToWishlistDB(selectedFlight)
-        setWishlist([...wishlist, selectedFlight])
-        setSelectedFlight("")
+    const addToWishlist = (index) => {
+        addToWishlistDB(selectedFlight[index])
+        setWishlist([...wishlist, selectedFlight[index]])
+        setSelectedFlight([])
     }
 
     const removeFromWishlist = (id) => {
         removeFromWishlistDB(id)
-        setWishlist([...wishlist, selectedFlight])
+        getWishlist()
     }
 
     return (
@@ -234,7 +248,7 @@ const PageContainer = () => {
                 <Switch>
                     <Route exact path="/">
                         <CountryContainer selectedCountry={selectedCountry} onSearchSubmit={searchFlights} ukAirports={ukAirports}/>
-                        <FlightsContainer flight={selectedFlight} onAddToWishlist={addToWishlist}/>
+                        <FlightsContainer flights={selectedFlight} onAddToWishlist={addToWishlist}/>
                     </Route>
                     <Route path="/wishlist" > 
                         <Wishlist wishlist = {wishlist} onRemoveFromWishlist={removeFromWishlist}/>
