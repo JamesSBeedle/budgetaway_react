@@ -4,7 +4,6 @@ const Wishlist = ({wishlist, onRemoveFromWishlist}) => {
 
 const handleRemoveFromWishlist = (evt) => {
     evt.preventDefault()
-    console.log(evt)
     onRemoveFromWishlist(evt.target.value)
 }
    
