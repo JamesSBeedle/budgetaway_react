@@ -182,7 +182,9 @@ const PageContainer = () => {
                     depAirport: data.data[0].departure.airport,
                     arrAirport: data.data[0].arrival.airport,
                     duration: durationCalculation(data.data[0].departure.scheduled, data.data[0].arrival.scheduled),
-                    price: priceCalculation(durationCalculation(data.data[0].departure.scheduled, data.data[0].arrival.scheduled))
+                    price: priceCalculation(durationCalculation(data.data[0].departure.scheduled, data.data[0].arrival.scheduled)),
+                    airline: data.data[0].airline.name,
+                    number: data.data[0].flight.iata
                 }
             )
         }
@@ -195,10 +197,12 @@ const PageContainer = () => {
         setSelectedRegion("")
         setSelectedCountry("")
         setSelectedCountryId("")
+        setSelectedFlight("")
         setSelectedLanguage(submitted)
     }
 
     const selectRegion = submitted => {
+        setSelectedFlight("")
         setSelectedRegion(submitted)
     }
 

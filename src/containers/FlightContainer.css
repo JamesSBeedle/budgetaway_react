@@ -1,9 +1,7 @@
 .flight {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-areas: 
-    "name name name"
-    "flag details map";
+    /* grid-template-columns: 1fr 2fr 1fr; */
+    grid-template-columns: 4fr auto;
     border: 2px cornsilk solid;
     border-radius: 12px;
     justify-items: center;
@@ -15,11 +13,13 @@
 }
 #flight-details{
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    /* grid-template-columns: 2fr 1.2fr; */
+    grid-template-columns: 1.3r 1.5fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: "dep dura"
-    "arr price";
-    column-gap: 50px;
+    grid-template-areas: "airline dep dura"
+    "number arr price";
+    column-gap: 20px;
+    row-gap: 10px;
 }
 
 #departure{
@@ -38,6 +38,14 @@
     grid-area: price;
 }
 
+#airling {
+    grid-area: airline;
+}
+
+#number {
+    grid-area: number;
+}
+
 .flight-button{
     background-color: rgb(138, 0, 0);
     color: cornsilk;
@@ -52,4 +60,8 @@
 .flight-button:hover{
     font-size: 16px;
     box-shadow: 0 0 2px 2px;
+}
+
+h4 {
+    margin: 2px;
 }

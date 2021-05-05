@@ -22,7 +22,7 @@ const handleRemoveFromWishlist = (evt) => {
 
     const displayTotal = (wishlist.length) ? 
     <div className="wishlist-cost">
-        <h3>Total Wishlist Cost: {calculateTotal}</h3>
+        <h2>Total Wishlist Cost: £{calculateTotal}</h2>
     </div> : null
 
     return (
