@@ -9,3 +9,12 @@ body {
 body::-webkit-scrollbar{
     display: none;
 }
+
+.App {
+    height: 100vh;
+    overflow: scroll;
+}
+
+.App::-webkit-scrollbar {
+    display: none;
+}
