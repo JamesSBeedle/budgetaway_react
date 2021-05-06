@@ -3,3 +3,10 @@
     height: 200px;
     border-radius: 12px;
   }
+
+@media (max-width: 1000px) {
+  .leaflet-container {
+    height: 150px;
+    width: 225px;
+  }
+}

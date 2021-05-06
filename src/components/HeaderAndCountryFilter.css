@@ -128,3 +128,81 @@
     background:  rgb(241, 87, 4);
     cursor: pointer;
   }
+
+
+  @media (max-width:1050px) {
+        .search-bar-selector {
+            margin: 0px 10px;
+        }
+  }
+
+  @media (max-width: 850px) {
+      .search-bar-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            margin: 0 10%;
+      }
+
+      .languages {
+          grid-column: 1;
+          grid-row: 1;
+          width: 90%;
+      }
+
+      .regions {
+          grid-column: 1;
+          grid-row: 2;
+          width: 90%;
+      }
+
+      .lucky-dip {
+          grid-column: 2;
+          grid-row: 2;
+      }
+
+      .nations {
+          grid-column: 2;
+          grid-row: 1;
+          width: 90%;
+      }
+  }
+
+  @media (max-width: 500px) {
+    .search-bar-selector {
+        display: inline-flex;
+        flex-direction: column;
+        justify-self: center;
+        margin: 0px 10%;
+    }
+    .regions{
+        display: none;
+      }
+    .languages{
+    display: none;
+    }
+
+    .title-links {
+        display: flex;
+        flex-direction: column;
+        max-width: min-content;
+        margin: 5px auto 0px auto;
+    }
+
+    .title-links > img {
+        width: 100vw;
+        margin-left: 80px;
+    }
+
+    .navbar > ul {
+        padding: 0px;
+    }
+
+    .lucky-dip {
+        margin: 5px auto;
+    }
+
+    .navbar {
+        padding: 0px;
+    }
+  }

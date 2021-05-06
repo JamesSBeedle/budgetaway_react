@@ -58,4 +58,34 @@
     margin: 5px 0px;
 }
 
+@media (max-width:1000px) {
+    .country-details {
+        grid-template-areas: "name flag"
+        "details map";
+        grid-template-columns: auto auto;
+        grid-template-rows: 1fr 1fr;
+       
+    }
 
+    #flag {
+        height: 150px;
+        width: 225px;
+    }
+
+    #country-name {
+        font-size: 30px;
+    }
+}
+
+@media (max-width:500px) {
+    .country-details {
+        display: flex;
+        flex-direction: column;
+        margin: 15px;
+        padding: 10px;
+    }
+
+    .details {
+        margin: 0px 0px 15px 0px;
+    }
+}

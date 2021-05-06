@@ -58,4 +58,11 @@
 
 .wishlist-cost {
     text-align: center;
+    margin: 0px 10px;
+}
+
+@media (max-width:500px) {
+    .wishlist {
+        margin: 15px;
+    }
 }
