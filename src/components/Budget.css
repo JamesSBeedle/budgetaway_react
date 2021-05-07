@@ -1,5 +1,5 @@
-.budget > h4 {
-  margin: 5px;
+.budget-form > h4 {
+  margin: 10px 0px;
  } 
 
 .search-bar {
@@ -38,8 +38,13 @@
   border: 2px solid cornsilk;
   background-color: rgb(241, 87, 4);
   color:cornsilk;
-  text-align: justify;
-  font-weight:bolder
+  text-align: center;
+  font-weight:bolder;
+  height: 30px;
+  width: 120px;
+  font-size: 16px;
+  margin: 20px 67.5px;
+  border-radius: 12px;
  }
 
 

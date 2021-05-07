@@ -176,17 +176,6 @@ const PageContainer = () => {
         .then(res => res.json())
         .then(data => 
             {
-            // setSelectedFlight(
-            //     {
-            //         name: selectedCountry.name,
-            //         depAirport: data.data[0].departure.airport,
-            //         arrAirport: data.data[0].arrival.airport,
-            //         duration: durationCalculation(data.data[0].departure.scheduled, data.data[0].arrival.scheduled),
-            //         price: priceCalculation(durationCalculation(data.data[0].departure.scheduled, data.data[0].arrival.scheduled)),
-            //         airline: data.data[0].airline.name,
-            //         number: data.data[0].flight.iata
-            //     }
-            // )
             const flightsArray = []
                 data.data.map((flight) => {
                     return flightsArray.push(
