@@ -1,8 +1,17 @@
 import "./Budget.css"
+import {getWishlistCost} from "../services/DataServices"
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function BudgetForm({ onSubmit }) {
+
+  const [wishlistCost, setWishlistCost] = useState(null)
+
+  useEffect(() => {
+    getWishlistCost()
+    .then(data => setWishlistCost(data))
+  })
+
   const [budgetData, setBudgetData] = useState({
     salary: '',
     savings: '',
@@ -70,7 +79,7 @@ function BudgetForm({ onSubmit }) {
                   type="number"
                   id="holiday"
                   name="holiday"
-                  value={budgetData.holiday} />
+                  defaultValue={wishlistCost} />
                 </div>
 
                 <input id="submit" onClick={handleSubmit} type="submit" value="Submit" />

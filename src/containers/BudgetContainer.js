@@ -21,7 +21,7 @@ function BudgetContainer() {
   return (
     <>
       <h1>Budget Calculator</h1>
-      <BudgetForm onSubmit={handleSubmit}/>
+      <BudgetForm onSubmit={handleSubmit} />
       <BudgetDisplay maxAmount={maxAmount} maxExcess={maxExcess}/>
     </>
   );

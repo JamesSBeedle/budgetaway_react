@@ -70,6 +70,11 @@ const addToWishlistDB = (flights) => {
     .then(res => res.json())
 }
 
+const getWishlistCost = () => {
+    return fetch(wishlistURL + "cost")
+    .then(res => res.json())
+}
 
-export {addCountries, getAllCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getUKDetails, getWishlist, removeFromWishlistDB, addToWishlistDB}
+
+export {addCountries, getAllCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getUKDetails, getWishlist, removeFromWishlistDB, addToWishlistDB, getWishlistCost}
 
