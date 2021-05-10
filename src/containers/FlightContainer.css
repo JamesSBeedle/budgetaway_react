@@ -20,6 +20,7 @@
     "number arr price";
     column-gap: 20px;
     row-gap: 10px;
+    width: 70%;
 }
 
 #departure{
