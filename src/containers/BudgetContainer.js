@@ -6,11 +6,11 @@ function BudgetContainer() {
   const [maxAmount, setMaxAmount] = useState();
   const [maxExcess, setMaxExcess] = useState();
 
-  const handleSubmit = (budgetData) => {
+  const handleSubmit = (budgetData, wishlistCost) => {
     const monthlySalary = budgetData.salary / 12;
     const tax = (20 / 100) * monthlySalary;
     const income = monthlySalary - tax;
-    const money_needed = budgetData.holiday - budgetData.savings;
+    const money_needed = wishlistCost - budgetData.savings;
     const excess = income - budgetData.outgoings;
     const departureMonths = money_needed/excess;
 

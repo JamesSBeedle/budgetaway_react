@@ -26,7 +26,7 @@ function BudgetForm({ onSubmit }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(budgetData);
+    onSubmit(budgetData, wishlistCost);
   }
 
     return(
@@ -72,14 +72,7 @@ function BudgetForm({ onSubmit }) {
 
                 <div className="search-bar">
                   <label id="holiday">Holiday Cost:</label>
-                  <input
-                  onChange={handleChange}
-                  min="0"
-                  step="500"
-                  type="number"
-                  id="holiday"
-                  name="holiday"
-                  defaultValue={wishlistCost} />
+                  <span id="wishlist-cost">£{wishlistCost}</span>
                 </div>
 
                 <input id="submit" onClick={handleSubmit} type="submit" value="Submit" />
